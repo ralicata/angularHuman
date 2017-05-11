@@ -29,12 +29,12 @@ mongoose.connect(DB, (err) => {
 });
 
 // SET view engine
-app.set('views', './client');
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 // SET static 
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(path.join(__dirname, 'client')));
 
 app.listen(PORT, () => {
     console.log('listening on port '+ PORT);
